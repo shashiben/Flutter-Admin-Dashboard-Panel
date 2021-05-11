@@ -1,6 +1,6 @@
 import 'package:admin_dashboard/app/constants.dart';
-import 'package:admin_dashboard/app/data.dart';
-import 'package:admin_dashboard/ui/widgets/MyFilesWidget.dart';
+import 'package:admin_dashboard/app/responsive.dart';
+import 'package:admin_dashboard/ui/widgets/MyFilesGridWidget.dart';
 import 'package:flutter/material.dart';
 
 class MyFilesComponent extends StatelessWidget {
@@ -10,6 +10,7 @@ class MyFilesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -23,7 +24,8 @@ class MyFilesComponent extends StatelessWidget {
               style: TextButton.styleFrom(
                   padding: EdgeInsets.symmetric(
                       horizontal: defaultPadding * 1.5,
-                      vertical: defaultPadding)),
+                      vertical: defaultPadding /
+                          (Responsive.isMobile(context) ? 2 : 1))),
               onPressed: () {},
               icon: Icon(Icons.add),
               label: Text("Add New"),
@@ -33,16 +35,16 @@ class MyFilesComponent extends StatelessWidget {
         SizedBox(
           height: defaultPadding,
         ),
-        GridView.builder(
-            shrinkWrap: true,
-            itemCount: myFilesDemoData.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 1.4,
-                crossAxisCount: 4,
-                crossAxisSpacing: defaultPadding),
-            itemBuilder: (context, index) => MyFilesWidget(
-                  cloudStorageInfo: myFilesDemoData[index],
-                ))
+        Responsive(
+          mobile: MyFilesGridWidget(
+            crossAxisCount: _size.width < 650 ? 2 : 4,
+            childAspectRatio: _size.width < 650 ? 1.3 : 1,
+          ),
+          desktop: MyFilesGridWidget(),
+          tablet: MyFilesGridWidget(
+            childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
+          ),
+        )
       ],
     );
   }

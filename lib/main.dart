@@ -1,6 +1,8 @@
 import 'package:admin_dashboard/app/constants.dart';
+import 'package:admin_dashboard/core/controllers/menu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import 'ui/screens/DashboardScreen.dart';
 
@@ -16,7 +18,12 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: bgColor,
           textTheme: GoogleFonts.poppinsTextTheme(
               Theme.of(context).textTheme.apply(bodyColor: Colors.white))),
-      home: DashboardScreen(),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => MenuController())
+        ],
+        child: DashboardScreen(),
+      ),
     );
   }
 }
