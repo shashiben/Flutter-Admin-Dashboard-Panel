@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/app/constants.dart';
+import 'package:admin_dashboard/ui/widgets/recentFileDataTable.dart';
 import 'package:flutter/material.dart';
 
 import 'Header.dart';
@@ -22,7 +23,13 @@ class DashboardCoreComponent extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: MyFilesComponent(),
+                  child: Column(
+                    children: [
+                      MyFilesComponent(),
+                      SizedBox(height: defaultPadding),
+                      RecentFiles()
+                    ],
+                  ),
                 ),
                 SizedBox(
                   width: defaultPadding,

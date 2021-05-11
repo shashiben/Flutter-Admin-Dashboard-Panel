@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/core/models/CloudStorage.dart';
+import 'package:admin_dashboard/core/models/RecentFiles.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -52,5 +53,50 @@ List<CloudStorageInfo> myFilesDemoData = [
     totalStorage: "7.3GB",
     color: Color(0xFF007EE5),
     percentage: 78,
+  ),
+];
+
+List recentFilesData = [
+  RecentFile(
+    icon: "assets/icons/xd_file.svg",
+    title: "XD File",
+    date: "01-03-2021",
+    size: "3.5mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/Figma_file.svg",
+    title: "Figma File",
+    date: "27-02-2021",
+    size: "19.0mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/doc_file.svg",
+    title: "Documetns",
+    date: "23-02-2021",
+    size: "32.5mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/sound_file.svg",
+    title: "Sound File",
+    date: "21-02-2021",
+    size: "3.5mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/media_file.svg",
+    title: "Media File",
+    date: "23-02-2021",
+    size: "2.5gb",
+  ),
+  RecentFile(
+    icon: "assets/icons/pdf_file.svg",
+    title: "Sals PDF",
+    date: "25-02-2021",
+    size: "3.5mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/excle_file.svg",
+    title: "Excel File",
+    date: "25-02-2021",
+    size: "34.5mb",
   ),
 ];
