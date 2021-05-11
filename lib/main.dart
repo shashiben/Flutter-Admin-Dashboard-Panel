@@ -2,6 +2,8 @@ import 'package:admin_dashboard/app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'ui/screens/DashboardScreen.dart';
+
 void main() {
   runApp(MyApp());
 }
