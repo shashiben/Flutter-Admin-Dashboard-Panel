@@ -2,6 +2,7 @@ import 'package:admin_dashboard/app/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'Header.dart';
+import 'MyFilesComponent.dart';
 import 'Storage_Details.dart';
 
 class DashboardCoreComponent extends StatelessWidget {
@@ -21,9 +22,7 @@ class DashboardCoreComponent extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: Container(
-                    color: Colors.white,
-                  ),
+                  child: MyFilesComponent(),
                 ),
                 SizedBox(
                   width: defaultPadding,
